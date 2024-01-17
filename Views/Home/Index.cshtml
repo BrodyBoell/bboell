@@ -1,0 +1,41 @@
+﻿@model AgeThisYear
+@{
+	Layout = null;
+}
+
+<!DocType html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Responsive Web App</title>
+	<style>
+		input{
+			width: 300px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Responsive Web App</h1>
+	<form asp-action="Index" method="post">
+		<div asp-validation-summary="All"></div>
+		<div>
+			<label asp-for="Name">Name: </label>
+			<input asp-for="Name" />
+		</div>
+		<div>
+			<label asp-for="BirthYear">Year of Birth: </label>
+			<input asp-for="BirthYear" />
+		</div>
+		<div>
+			<label>Current Age: </label>
+			<input value="@ViewBag.currentAge.ToString()" readonly />
+		</div>
+		<div>
+			<label>Result: </label>
+			<input value="@ViewBag.print.ToString()" readonly />
+		</div>
+	<button type="submit">Calculate</button>
+	<a asp-action="Index">Clear</a>
+	</form>
+</body>
+</html>
